@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GamesApp</string>
+    <string name="text_home">Home</string>
+    <string name="text_details">Details</string>
+</resources>
