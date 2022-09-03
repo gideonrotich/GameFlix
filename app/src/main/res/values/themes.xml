@@ -2,6 +2,8 @@
 <resources>
 
     <style name="Theme.GamesApp" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/purple_500</item>
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 </resources>

@@ -26,7 +26,7 @@ import com.example.gamesapp.domain.models.Games
 fun ItemGamesCard(game:Games,onItemClicked: (game:Games) -> Unit){
     Card(modifier = Modifier
         .size(130.dp,170.dp)
-        .padding(8.dp)
+        .padding(6.dp)
         .clip(RoundedCornerShape(8.dp))
         .clickable(onClick = { onItemClicked(game) }),
         elevation = 0.dp,
@@ -45,7 +45,7 @@ fun ItemGamesCard(game:Games,onItemClicked: (game:Games) -> Unit){
                 contentDescription = "",
                 contentScale = ContentScale.Crop
             )
-            Spacer(modifier = Modifier.width(16.dp))
+
         }
     }
 }
