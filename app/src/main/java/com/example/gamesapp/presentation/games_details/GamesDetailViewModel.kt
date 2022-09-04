@@ -2,9 +2,11 @@ package com.example.gamesapp.presentation.games_details
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gamesapp.domain.use_cases.GetGameDetailUseCase
+import com.example.gamesapp.util.Constants
 import com.example.gamesapp.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -13,10 +15,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class GamesDetailViewModel @Inject constructor(
-    private val getGameDetailUseCase: GetGameDetailUseCase
+    private val getGameDetailUseCase: GetGameDetailUseCase,
+    savedStateHandle: SavedStateHandle
 ):ViewModel() {
     private val _state = mutableStateOf(GamesDetailState())
     val state:State<GamesDetailState> = _state
+
+    init {
+        savedStateHandle.get<String>(Constants.PARAM_GAME_ID)?.let { game ->
+            getGamesDetails(game)
+        }
+    }
 
     private fun getGamesDetails(id:String){
         getGameDetailUseCase(id).onEach { result ->

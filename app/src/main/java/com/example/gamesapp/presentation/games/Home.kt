@@ -71,7 +71,7 @@ fun Home(
             LazyRow(modifier = Modifier.height(270.dp)) {
                 items(developerstate.developers) { developers ->
                     ItemDeveloperCard(developer = developers, onItemClicked = {
-                        navController.navigate(Screen.Details.route + "/${developers.id}")
+
                     })
                 }
             }

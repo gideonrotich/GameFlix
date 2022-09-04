@@ -20,6 +20,7 @@ import com.example.gamesapp.presentation.MainScreenView
 import com.example.gamesapp.presentation.Screen
 
 import com.example.gamesapp.presentation.games.Home
+import com.example.gamesapp.presentation.games_details.components.Details
 import com.example.gamesapp.ui.theme.GamesAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,6 +30,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MainScreenView()
+
+            ////
         }
     }
 }
