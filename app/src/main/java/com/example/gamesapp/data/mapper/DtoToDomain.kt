@@ -5,6 +5,7 @@ import com.example.gamesapp.data.dto.Result
 import com.example.gamesapp.domain.models.Developer
 import com.example.gamesapp.domain.models.Games
 import com.example.gamesapp.domain.models.GamesDetails
+import com.example.gamesapp.domain.models.Genres
 
 fun Result.toGames():Games{
     return Games(
@@ -22,5 +23,11 @@ fun GamesDetailsDto.toGamesDetails():GamesDetails{
 fun com.example.gamesapp.data.dto.developers.Result.toDeveloper():Developer{
     return Developer(
          games_count, id, image_background, name, slug
+    )
+}
+
+fun com.example.gamesapp.data.dto.genres.Result.toGenres(): Genres {
+    return Genres(
+        games_count, id, image_background, name, slug
     )
 }

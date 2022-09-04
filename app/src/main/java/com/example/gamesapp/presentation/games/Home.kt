@@ -24,6 +24,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.gamesapp.presentation.Developer.components.DeveloperViewModel
 import com.example.gamesapp.presentation.Developer.components.ItemDeveloperCard
+import com.example.gamesapp.presentation.Genres.GenresViewModel
+import com.example.gamesapp.presentation.Genres.ItemGenresCard
 import com.example.gamesapp.presentation.Screen
 import com.example.gamesapp.presentation.games.components.ItemGamesCard
 import com.example.gamesapp.presentation.games.components.TopBar
@@ -34,10 +36,12 @@ import com.example.gamesapp.ui.theme.Purple500
 fun Home(
     navController: NavHostController,
     viewModel: GamesViewModel = hiltViewModel(),
-    developerViewModel: DeveloperViewModel = hiltViewModel()
+    developerViewModel: DeveloperViewModel = hiltViewModel(),
+    genresViewModel:GenresViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
     val developerstate = developerViewModel.state.value
+    val genresstate = genresViewModel.state.value
 
 
     Box(
@@ -49,8 +53,8 @@ fun Home(
             .fillMaxSize()
             .verticalScroll(rememberScrollState())) {
             LazyColumn(modifier = Modifier.height(400.dp), reverseLayout = true) {
-                items(developerstate.developers) { developers ->
-                    ItemDeveloperCard(developer = developers, onItemClicked = {
+                items(genresstate.genres.take(1)) { genres ->
+                    ItemGenresCard(genre = genres, onItemClicked = {
 
                     })
                 }
@@ -65,7 +69,7 @@ fun Home(
                 color = Color.White
             )
             LazyRow(modifier = Modifier.height(170.dp)) {
-                items(state.games) { games ->
+                items(state.games.takeLast(5)) { games ->
                     ItemGamesCard(game = games, onItemClicked = {
                         navController.navigate(Screen.Details.route + "/${games.id}")
                     })
@@ -113,7 +117,7 @@ fun Home(
                 color = Color.White
             )
             LazyRow(modifier = Modifier.height(170.dp)) {
-                items(state.games) { games ->
+                items(state.games.takeLast(8)) { games ->
                     ItemGamesCard(game = games, onItemClicked = {
                         navController.navigate(Screen.Details.route + "/${games.id}")
                     })

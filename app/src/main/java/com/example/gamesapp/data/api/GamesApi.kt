@@ -4,6 +4,7 @@ import com.example.gamesapp.BuildConfig.API_KEY
 import com.example.gamesapp.data.dto.GamesDetailsDto
 import com.example.gamesapp.data.dto.GamesResponseDto
 import com.example.gamesapp.data.dto.developers.DeveloperResponseDto
+import com.example.gamesapp.data.dto.genres.GenresResponseDto
 import com.example.gamesapp.util.Constants
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -18,4 +19,7 @@ interface GamesApi {
 
     @GET("developers")
     suspend fun getDevelopers():DeveloperResponseDto
+
+    @GET("genres")
+    suspend fun getGenres():GenresResponseDto
 }

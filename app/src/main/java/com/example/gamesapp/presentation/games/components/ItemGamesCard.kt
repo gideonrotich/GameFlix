@@ -16,36 +16,54 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.example.gamesapp.R
 import com.example.gamesapp.domain.models.Games
 
 @Composable
-fun ItemGamesCard(game:Games,onItemClicked: (game:Games) -> Unit){
-    Card(modifier = Modifier
-        .size(130.dp,170.dp)
-        .padding(6.dp)
-        .clip(RoundedCornerShape(8.dp))
-        .clickable(onClick = { onItemClicked(game) }),
+fun ItemGamesCard(game: Games, onItemClicked: (game: Games) -> Unit) {
+    Card(
+        modifier = Modifier
+            .size(120.dp, 250.dp)
+            .padding(6.dp)
+            .clip(RoundedCornerShape(8.dp))
+            .clickable(onClick = { onItemClicked(game) }),
         elevation = 0.dp,
         backgroundColor = MaterialTheme.colors.onSurface
     ) {
-        Row(modifier = Modifier
-            .fillMaxWidth())
-        {
-            val image:Painter = rememberImagePainter(data = game.background_image)
+        Column(modifier = Modifier.fillMaxSize()) {
 
-            Image(  modifier = Modifier
-                .fillMaxSize()
-                .clip(RoundedCornerShape(8.dp)),
+            val image: Painter = rememberImagePainter(data = game.background_image)
+
+            Image(
+                modifier = Modifier
+                    .height(120.dp)
+                    .width(100.dp)
+                    .clip(RoundedCornerShape(8.dp)),
                 painter = image,
                 alignment = Alignment.Center,
                 contentDescription = "",
                 contentScale = ContentScale.Crop
             )
 
+
+            Text(
+                text = game.name!!,
+                textAlign = TextAlign.Start,
+                modifier = Modifier.padding(6.dp),
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Normal,
+                fontFamily = FontFamily.SansSerif,
+                color = Color.White,
+                maxLines = 1
+            )
+
         }
+
     }
 }
