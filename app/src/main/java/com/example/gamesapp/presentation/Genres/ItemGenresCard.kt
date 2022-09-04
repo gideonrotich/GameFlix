@@ -54,14 +54,6 @@ fun ItemGenresCard(
             .fillMaxWidth()
             .height(400.dp)
             .padding(0.dp)
-            .background(
-                Brush.verticalGradient(
-                    listOf(
-                        dominantColor.value,
-                        MaterialTheme.colors.surface
-                    )
-                )
-            )
             .clickable(onClick = { onItemClicked(genre) }),
         elevation = 0.dp,
 
@@ -72,15 +64,7 @@ fun ItemGenresCard(
 
         Image(
             modifier = Modifier
-                .fillMaxWidth()
-                .background(
-                    Brush.verticalGradient(
-                        colors = listOf(
-                            dominantColor.value,
-                            dominantColor.value.copy(alpha = 0.1F)
-                        )
-                    )
-                ),
+                .fillMaxWidth(),
             painter = painter,
             alignment = Alignment.Center,
             contentDescription = "",
@@ -111,11 +95,11 @@ fun ItemGenresCard(
                 ) {
                     Text(
                         text = buildAnnotatedString {
-                            withStyle(style = SpanStyle(color = Color.Red, fontSize = 40.sp)) {
+                            withStyle(style = SpanStyle(color = Color.Black, fontSize = 40.sp)) {
                                 append(" G")
                             }
                             append("ame")
-                            withStyle(style = SpanStyle(color = Color.Red, fontSize = 40.sp)) {
+                            withStyle(style = SpanStyle(color = Color.Black, fontSize = 40.sp)) {
                                 append("F")
                             }
                             append("lix")
@@ -202,10 +186,15 @@ fun ItemGenresCard(
                     .background(
                         Brush.verticalGradient(
                             colors = listOf(
-                                dominantColor.value,
-                                Color.Transparent,
-                                Color.Transparent,
-                                dominantColor.value.copy(alpha = 0.1F, 0F, 0F, 0F)
+                                dominantColor.value.copy(alpha = 0.1F, 0F, 0F, 0F),
+                                Color.Black.copy(alpha = 0.6F),
+                                Color.Black.copy(alpha = 0.7F),
+                                Color.Black.copy(alpha = 0.7F),
+                                Color.Black.copy(alpha = 0.7F),
+                                Color.Black.copy(alpha = 0.8F),
+                                Color.Black.copy(alpha = 0.9F),
+                                Color.Black.copy(alpha = 0.9F),
+                                Color.Black.copy(alpha = 1F)
                             )
                         )
                     )
