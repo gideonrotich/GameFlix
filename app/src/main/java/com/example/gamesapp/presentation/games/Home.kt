@@ -60,6 +60,22 @@ fun Home(
                 }
             }
             Text(
+                text = "Only on Gameflix",
+                textAlign = TextAlign.Start,
+                modifier = Modifier.padding(6.dp),
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.SansSerif,
+                color = Color.White
+            )
+            LazyRow(modifier = Modifier.height(270.dp)) {
+                items(developerstate.developers) { developers ->
+                    ItemDeveloperCard(developer = developers, onItemClicked = {
+                        navController.navigate(Screen.Details.route + "/${developers.id}")
+                    })
+                }
+            }
+            Text(
                 text = "Games based on books",
                 textAlign = TextAlign.Start,
                 modifier = Modifier.padding(6.dp),

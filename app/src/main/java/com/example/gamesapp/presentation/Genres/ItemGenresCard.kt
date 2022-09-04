@@ -38,12 +38,15 @@ import com.example.gamesapp.presentation.games.GamesViewModel
 import kotlinx.coroutines.launch
 
 @Composable
-
-fun ItemGenresCard(genre: Genres, viewModel: GenresViewModel = hiltViewModel(), onItemClicked: (genre: Genres) -> Unit){
+fun ItemGenresCard(
+    genre: Genres,
+    viewModel: GenresViewModel = hiltViewModel(),
+    onItemClicked: (genre: Genres) -> Unit
+) {
 
     val defaultDominantColor = MaterialTheme.colors.surface
-    val dominantColor = remember{ mutableStateOf(defaultDominantColor) }
-    val dominantTextColor = remember{ mutableStateOf(defaultDominantColor) }
+    val dominantColor = remember { mutableStateOf(defaultDominantColor) }
+    val dominantTextColor = remember { mutableStateOf(defaultDominantColor) }
 
 
     Card(
@@ -64,7 +67,8 @@ fun ItemGenresCard(genre: Genres, viewModel: GenresViewModel = hiltViewModel(), 
 
         ) {
 
-        val  painter = rememberImagePainter(data = genre.image_background, builder = {crossfade( true)})
+        val painter =
+            rememberImagePainter(data = genre.image_background, builder = { crossfade(true) })
 
         Image(
             modifier = Modifier
@@ -201,7 +205,7 @@ fun ItemGenresCard(genre: Genres, viewModel: GenresViewModel = hiltViewModel(), 
                                 dominantColor.value,
                                 Color.Transparent,
                                 Color.Transparent,
-                                dominantColor.value.copy(alpha = 0.1F,0F,0F,0F)
+                                dominantColor.value.copy(alpha = 0.1F, 0F, 0F, 0F)
                             )
                         )
                     )
