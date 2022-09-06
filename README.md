@@ -1,5 +1,5 @@
 # GamesApp
-An android app built using Kotlin that consumes [IMDB API](https://developer.imdb.com) to display current trending, upcoming and popular movies🍿 and tvshows🎬. It has been built following Clean Architecture Principle, Repository Pattern, MVVM Architecture in the presentation layer as well as Jetpack components.
+An android app built using Kotlin that consumes [RAWG API](https://rawg.io) to display current trending, upcoming and popular movies🍿 and tvshows🎬. It has been built following Clean Architecture Principle, Repository Pattern, MVVM Architecture in the presentation layer as well as Jetpack components.
 
 > Download the apk [here](https://drive.google.com/file/d/17gj0Kb-mey6kQlo8sK2MIaKrvJEsdoq8/view?usp=sharing)
 
@@ -93,7 +93,7 @@ This project uses many of the popular libraries, plugins and tools of the androi
 
 ## Libraries.
 
-- [Koin](https://github.com/google/hilt) - Dependency Injection library.
+- [Hilt](https://github.com/google/hilt) - Dependency Injection library.
 - [Jetpack](https://developer.android.com/jetpack)
   -   [Android KTX](https://developer.android.com/kotlin/ktx.html) - Provide concise, idiomatic Kotlin to Jetpack and Android platform APIs.
     - [AndroidX](https://developer.android.com/jetpack/androidx) - Major improvement to the original Android [Support Library](https://developer.android.com/topic/libraries/support-library/index), which is no longer maintained.
