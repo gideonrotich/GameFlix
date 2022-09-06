@@ -22,7 +22,7 @@ An android app built using Kotlin that consumes [RAWG API](https://rawg.io) to d
 
 ## Prerequisite.
 
-In order to be able to build the application you'll need to change the api key in [`gradle.properties`](link_to_gradle.properties_file). First and formost you need to generate your own api key by [creating](https://imdb-api.com/Identity/Account/Manage) an IMDB account and [generating](https://imdb-api.com/api) an api key.
+In order to be able to build the application you'll need to change the api key in [`gradle.properties`](link_to_gradle.properties_file). First and formost you need to generate your own api key by [creating](https://rawg.com/Identity/Account/Manage) an RAWG account and [generating](https://rawg-api.com/api) an api key.
 
 
 ## Disclaimer.
