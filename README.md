@@ -1,5 +1,5 @@
 # GamesApp
-An android app built using Kotlin that consumes [RAWG API](https://rawg.io) to display current trending, upcoming and popular movies🍿 and tvshows🎬. It has been built following Clean Architecture Principle, Repository Pattern, MVVM Architecture in the presentation layer as well as Jetpack components.
+An android app built using Kotlin that consumes [RAWG API](https://rawg.io) to display current games, upcoming and popular video games 🎮and characters 🎃. It has been built following Clean Architecture Principle, Repository Pattern, MVVM Architecture in the presentation layer as well as Jetpack components.
 
 > Download the apk [here](https://drive.google.com/file/d/17gj0Kb-mey6kQlo8sK2MIaKrvJEsdoq8/view?usp=sharing)
 
