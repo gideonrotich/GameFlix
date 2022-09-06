@@ -136,7 +136,7 @@ In this section i've included some resources ie. articles and GitHub reposirtori
 # Screenshots
 These are the app's screenshots:
 
-<img src="assets/img1.png" width="250"/><img src="assets/img1.1.png" width="250"/> <img src="assets/img2.png" width="250"/>
+<img src="one.png" width="250"/><img src="assets/img1.1.png" width="250"/> <img src="assets/img2.png" width="250"/>
 
 <img src="assets/img3.png" width="250"/> <img src="assets/img3.1.png" width="250"/> <img src="assets/img4.png" width="250"/>
 
