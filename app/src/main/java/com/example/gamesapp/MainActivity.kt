@@ -29,8 +29,23 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MainScreenView()
-
+//            MainScreenView()
+            val navController = rememberNavController()
+            NavHost(
+                navController = navController,
+                startDestination = Screen.Home.route
+            ) {
+                composable(
+                    route = Screen.Home.route
+                ) {
+                    Home(navController)
+                }
+                composable(
+                    route = Screen.Details.route + "/{id}"
+                ) {
+                    Details(navController)
+                }
+            }
             ////
         }
     }

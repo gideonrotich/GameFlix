@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
@@ -23,6 +24,9 @@ import com.example.gamesapp.presentation.games_details.GamesDetailViewModel
 
 @Composable
 fun Details(navController: NavController,viewModel: GamesDetailViewModel = hiltViewModel()){
+
+
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -45,40 +49,84 @@ fun Details(navController: NavController,viewModel: GamesDetailViewModel = hiltV
         },
 
         content = {
-            DetailsView()
+            val state = viewModel.state.value
+//            DetailsView()
+            //
+            Box(modifier = Modifier.fillMaxSize()) {
+                state.games.let { games ->
+                    LazyColumn(modifier = Modifier
+                        .fillMaxSize()
+                        .background(color = colorResource(id = R.color.white))){
+
+                        item {
+                            val image: Painter = rememberImagePainter(data = games!!.background_image)
+                            Image(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(346.dp),
+                                painter = image,
+                                alignment = Alignment.CenterStart,
+                                contentDescription = "",
+                                contentScale = ContentScale.Crop
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            inneddetails(games!!.name, games.metacritic.toString(), games.name_original)
+                        }
+
+                        item {
+                            Spacer(modifier = Modifier.height(24.dp))
+                            Text(
+                                text = "Description",
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp, 0.dp, 16.dp, 0.dp),
+                                color = colorResource(id = R.color.text),
+                                style = MaterialTheme.typography.body2,
+                                textAlign = TextAlign.Start
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Text(
+                                text = games!!.description,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp, 0.dp, 16.dp, 0.dp),
+                                color = colorResource(id = R.color.text),
+                                style = MaterialTheme.typography.body2,
+                                textAlign = TextAlign.Start
+                            )
+                        }
+
+                        item {
+                            Spacer(modifier = Modifier.height(24.dp))
+                            Text(
+                                text = "Game Info",
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp, 0.dp, 16.dp, 0.dp),
+                                color = colorResource(id = R.color.text),
+                                style = MaterialTheme.typography.body2,
+                                textAlign = TextAlign.Start
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp, 0.dp, 16.dp, 0.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween
+                            ) {
+                                InfoCard(title = "Youtube count", value = games!!.youtube_count.toString())
+                                InfoCard(title = "Achievements", value = games!!.parent_achievements_count)
+                                InfoCard(title = "Ratings", value = games!!.metacritic.toString())
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            //
+
 
         }
     )
-}
-
-
-@Composable
-fun DetailsView(viewModel: GamesDetailViewModel = hiltViewModel()){
-    val state = viewModel.state.value
-
-    Box(modifier = Modifier.fillMaxSize()) {
-        state.games.let { games ->
-            LazyColumn(modifier = Modifier
-                .fillMaxSize()
-                .background(color = colorResource(id = R.color.white))){
-
-                item {
-                    val image: Painter = rememberImagePainter(data = games!!.background_image)
-                    Image(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(346.dp),
-                        painter = image,
-                        alignment = Alignment.CenterStart,
-                        contentDescription = "",
-                        contentScale = ContentScale.Crop
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    inneddetails(games.name, games.metacritic.toString(), games.name_original)
-                }
-
-
-            }
-        }
-    }
 }
